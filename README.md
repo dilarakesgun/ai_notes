@@ -1,2 +1,2 @@
-# ai_notes
-
+# git_notes
+git ve github hakkında önemli hatırlatma notlarım
