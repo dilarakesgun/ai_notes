@@ -1,0 +1,104 @@
+ls => klasörleri dokümanları listeler
+pwd => print working directory
+cd  => o dosyaya gitmek
+cd .. => bir önceki klasöre geri gel
+clear => ekranı temizler
+mkdir => klasör oluşturur
+touch => dosya oluşturur örneğin touch dosya.txt
+rm dosya.txt => dosyayı kaldırır
+rm -rf klasörismi => klasörü kaldırır
+git => git'in komutlarını gösterir
+---------------------------------------------------------
+
+git config --global user.name "ismini yaz" 
+
+git config user.name
+git config --global user.email "email yaz"
+git config user.email
+
+--------------------------------------------------------
+3 alan var
+çalışma klasörü -----> git add -------> staging --------> git commit -------> local repository
+
+
+git status
+git init => dosya içine git aktif edilir
+ls -la => gizli dosyaları gösterir
+
+git commit -m "mesaj yaz" 
+
+git log => commit yapılan zamanları gösterir
+
+git add. => her şeyi stage'e ekler 
+
+
+touch .gitignore => git'in görmezden geleceği dosyalar
+
+git branch
+git switch master
+
+git merge feat => iki branchi birleştirir master ile
+
+fast forwarding => master'dan sonra master olduğu yerde dururken branchte commitler attıysak ve sonra master'a dönüp commit atıyorsak o arayı fast forwarding ile doğru sıralamayla birleştirebiliriz.
+
+git restore => en son comitte ne durumdaysa dosya ona geri döndürür.
+---------------------------------------------------------------------------
+stash => al sakla, bir yerde ben görmeyeyim . sonra istersem uygularım
+
+git stash => id verir saklar
+git stash pop => geri alıyoruz
+git stash list
+git stash apply stast{0}
+git stash clear => bütün stashleri siler
+git stasg apply => en sonuncu stashi geri getiyrioyr , git stash list yapınca ama listede id'si kalmaya devam ediyor
+
+
+git checkout id => bir önceki commite dönmek için
+git reset  id  => istemediğimiz commitleri silebiliyoruz ama önceden yapılan değişiklikler dosya içinde kalmaya devam ediyor
+git reset --hard => o değişiklikleri de siler
+geri dönülemez resette komple siler , diğer developerları da etkiler
+
+
+git revert <commit> id => yaptığımız işlemleri geri alarak o yolda yeni bir commit atar
+ yapılan değişikliği tersine çevirir. Revert, diğer developerlarla çalışırken daha güvenli  çünkü commit geçmişini korur ve başkalarının çalışmalarını etkilemez.
+
+git diff => hangi commitler arasında, hangi brancler arasında neler olmuştu onları görebiliriz
+
+ 
+git rebase=> branchteki tüm geçmişi alır başka bir branchin en son commitinin üzerine taşır (ortak developerlarla çalışırken kullanılması önerilmez çünkü rebase mevcut commitleri silip yeni hashler atayarak ekler yani tarihçe değişir ayrıca diğer developer'ı bu değişikliğe adapte etmek için git push --force gerekir)
+
+
+git push --force => uzak sunucudakicommit geçmişini tamamen yok sayarak, kendi bilgisayarınızdaki yerel geçmişi oraya zorla yazdıran ve çelişen tüm uzak kayıtları silen tehlikeli bir komuttur.
+
+
+--------------------------------------------------------
+Git'ten Github'a
+
+git push -u origin master
+git remote
+git push origin feat 
+
+
+compare&pull request => 2 branch arasında nelerin değiştiğini gösterir, çakışma yoksa merge edebiliriz der
+
+
+git branch -r => remote branchleri gösterir
+
+
+git fetch=> remote'taki tüm yeni commitleri , branchleri , commit geçmişini local bilgisayarınıza indiren ancak mevcut kodunuza veya çalıştığınız branche müdahele etmez, güvenlidir.
+
+
+git checkout origin  => remote sunucunun ana kopyası origine bağlar ve local bir branchte olmadığınız için kod üzerinde yapacağınız değişikliklerin kaydedilmeyeceği detached HEAD durumuna sokan inceleme komutudur.
+
+
+git pull=> git fetch + git merge
+değişiklikleri al direkt benim projeme yerleştir
+
+
+git clone link => github'taki mevcut bir repository birebir kopyasını üzerinde çalışabileceğim şekilde local bilgisayarıma indirir.
+
+
+fork 'lamak => başka birine veya kuruma ait bir repository'nin tamamını, orijinal projeyi etkilemeden üzerinde özgürce değişiklik yapabilmemiz için kendi github profilime kopyalar. yaptığım değişikliklerden sonra pull request yapabilirim (contribution)
+
+
+
